@@ -36,3 +36,14 @@ Every topic is studied through:
 - [ ] Terraform
 - [ ] Kubernetes
 - [ ] Monitoring
+
+## Git Lab
+
+This repository was created and managed using Git and GitHub.
+
+### Commands Practiced
+
+- git status
+- git add
+- git commit
+- git push
