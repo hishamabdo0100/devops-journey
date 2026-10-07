@@ -47,3 +47,7 @@ This repository was created and managed using Git and GitHub.
 - git add
 - git commit
 - git push
+
+## Branching Lab
+
+This section was created on the `feature/git-lab` branch.
