@@ -1,0 +1,14 @@
+INFO Server started
+INFO Database connected
+INFO User login successful
+ERROR Database connection failed
+INFO Retrying connection
+WARNING High memory usage
+INFO Database connected
+ERROR Request timeout
+INFO Server running
+INFO Health check passed
+ERROR Authentication failed
+INFO User logged out
+ERROR Database connection lost
+INFO Database reconnecting

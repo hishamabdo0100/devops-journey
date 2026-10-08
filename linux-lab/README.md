@@ -58,3 +58,53 @@ Created a `docs` directory, created `readme.txt` inside it, copied `notes.txt`, 
 ## Status
 
 Completed
+
+## Linux Lab #2 — Reading and Inspecting Logs
+
+### Topics Practiced
+
+* Reading files with `cat`
+* Inspecting files with `head`
+* Inspecting files with `tail`
+* Monitoring logs with `tail -f`
+* Searching logs with `grep`
+* Appending data with `>>`
+
+### Commands Practiced
+
+```bash
+cat app.log
+head -n 3 app.log
+tail -n 3 app.log
+tail -f app.log
+grep "ERROR" app.log
+grep "WARNING" app.log
+grep "INFO" app.log
+```
+
+### Log Monitoring
+
+Used `tail -f` to monitor `app.log` in real time.
+
+New log entries were appended using:
+
+```bash
+echo "ERROR Database connection lost" >> app.log
+echo "INFO Database reconnecting" >> app.log
+```
+
+The new entries appeared automatically in the terminal running `tail -f`.
+
+### Troubleshooting Example
+
+Used `grep` to find error messages:
+
+```bash
+grep "ERROR" app.log
+```
+
+This returned all log entries containing `ERROR`.
+
+### Status
+
+Completed
