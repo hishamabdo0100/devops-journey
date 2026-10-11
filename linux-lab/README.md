@@ -201,3 +201,130 @@ Ubuntu Server running inside VirtualBox. Commands were executed through an SSH c
 
 Completed
 
+## Linux Users & Groups Lab
+
+### Objective
+
+Learn how to inspect Linux user information, create groups, and manage group membership.
+
+### Commands Practiced
+
+#### 1. Display User Information
+
+```bash
+whoami
+id
+groups
+groups hisham
+```
+
+* `whoami`: Displays the current username.
+* `id`: Displays the user ID (UID), primary group ID (GID), and group memberships.
+* `groups`: Displays the groups associated with the current user.
+* `groups hisham`: Displays the groups associated with the specified user.
+
+#### 2. Create a New Group
+
+```bash
+sudo groupadd devops-lab
+```
+
+Created a new Linux group named `devops-lab`.
+
+#### 3. Verify Group Information
+
+```bash
+getent group devops-lab
+```
+
+Example output before adding a member:
+
+```text
+devops-lab:x:1001:
+```
+
+* `devops-lab`: Group name.
+* `x`: Group password placeholder.
+* `1001`: Group ID (GID).
+* The final field lists supplementary members.
+
+#### 4. Add a User to a Group
+
+```bash
+sudo usermod -aG devops-lab hisham
+```
+
+Added the existing user `hisham` to `devops-lab` while preserving the user's other supplementary group memberships.
+
+**Important:** The `-a` option appends the group instead of replacing the existing supplementary group list.
+
+#### 5. Verify Group Membership
+
+```bash
+groups hisham
+```
+
+Observed output:
+
+```text
+hisham : hisham adm cdrom sudo dip plugdev users lxd devops-lab
+```
+
+The output confirms that `hisham` is a member of `devops-lab`.
+
+#### 6. Inspect User Records
+
+```bash
+getent passwd hisham
+```
+
+Observed output:
+
+```text
+hisham:x:1000:1000:Hisham:/home/hisham:/bin/bash
+```
+
+The fields represent:
+
+1. Username
+2. Password placeholder
+3. User ID (UID)
+4. Primary group ID (GID)
+5. User description
+6. Home directory
+7. Login shell
+
+#### 7. Inspect Group Records
+
+```bash
+getent group devops-lab
+```
+
+Observed output:
+
+```text
+devops-lab:x:1001:hisham
+```
+
+This confirms the group's GID and its listed supplementary member.
+
+### Key Takeaways
+
+* `useradd` creates a user.
+* `groupadd` creates a group.
+* `usermod -aG` adds an existing user to a supplementary group.
+* `groups` and `id` inspect user group membership.
+* `getent passwd` retrieves user records.
+* `getent group` retrieves group records.
+* Linux permissions and group membership help administrators control access to system resources.
+
+### Environment
+
+* OS: Ubuntu Server 26.04.1 LTS
+* Virtualization: Oracle VirtualBox
+* Access: SSH from Windows Git Bash
+
+### Status
+
+Completed
+
