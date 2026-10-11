@@ -59,6 +59,8 @@ Created a `docs` directory, created `readme.txt` inside it, copied `notes.txt`, 
 
 Completed
 
+---
+
 ## Linux Lab #2 — Reading and Inspecting Logs
 
 ### Topics Practiced
@@ -108,3 +110,94 @@ This returned all log entries containing `ERROR`.
 ### Status
 
 Completed
+
+---
+
+## Linux Permissions Lab
+
+### Objective
+
+Practice Linux file permissions using `chmod` on Ubuntu Server.
+
+### Permission Values
+
+| Permission    | Value |
+| ------------- | ----: |
+| `r` (read)    |     4 |
+| `w` (write)   |     2 |
+| `x` (execute) |     1 |
+
+### Permission Categories
+
+* **Owner:** The user who owns the file.
+* **Group:** Users belonging to the file's group.
+* **Others:** All other users.
+
+### Practical Experiments
+
+Created a test file and inspected its permissions:
+
+```bash
+touch permission-test.txt
+ls -l permission-test.txt
+```
+
+Changed the permissions to `600`:
+
+```bash
+chmod 600 permission-test.txt
+ls -l permission-test.txt
+```
+
+Expected permissions:
+
+```text
+-rw-------
+```
+
+Changed the permissions to `755`:
+
+```bash
+chmod 755 permission-test.txt
+ls -l permission-test.txt
+```
+
+Expected permissions:
+
+```text
+-rwxr-xr-x
+```
+
+Changed the permissions to `644`:
+
+```bash
+chmod 644 permission-test.txt
+ls -l permission-test.txt
+```
+
+Expected permissions:
+
+```text
+-rw-r--r--
+```
+
+### Understanding Numeric Permissions
+
+Each digit represents the combined permission values for one category.
+
+* `600`: Owner can read and write; group and others have no permissions.
+* `755`: Owner can read, write, and execute; group and others can read and execute.
+* `644`: Owner can read and write; group and others can read only.
+
+### Environment
+
+Ubuntu Server running inside VirtualBox. Commands were executed through an SSH connection from Git Bash on Windows.
+
+### Key Takeaway
+
+`chmod` changes file permissions. The `ls -l` command displays the resulting permissions, allowing them to be verified.
+
+### Status
+
+Completed
+
